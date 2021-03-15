@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+
+    <title>Disable Future Date in Date Field</title>
+    <style>
+      .center {
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+      }
+      .border-color {
+        border: 2px solid #363632;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <p>Disable future date using pure JavaScript</p>
+      <form action="" class="center border-color">
+        <input
+          id="datefield"
+          class="border-color"
+          type="date"
+          min="1899-01-01"
+          max=""
+        />
+      </form>
+    </div>
+    <script>
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1; //January is 0!
+      var yyyy = today.getFullYear();
+      if (dd < 10) {
+        dd = "0" + dd;
+      }
+      if (mm < 10) {
+        mm = "0" + mm;
+      }
+
+      today = yyyy + "-" + mm + "-" + dd;
+      document.getElementById("datefield").setAttribute("max", today);
+    </script>
+  </body>
+</html>
